@@ -365,6 +365,45 @@
         font-size: 1em;
       }
     }
+
+    #cdx-aira {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 180px;
+  animation: floatAira 6s ease-in-out infinite;
+  z-index: 9999;
+}
+
+#cdx-aira img {
+  width: 100%;
+  filter: drop-shadow(0 0 10px #00e0ff);
+}
+
+.aira-bubble {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  background: #00e0ff;
+  color: #000;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  animation: popIn 0.6s ease;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+@keyframes floatAira {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
   </style>
 </head>
 <body>
@@ -656,6 +695,18 @@
     return "Maaf saya belum mengerti. Coba tanya dengan kata lain ya 🙏";
   }
 </script>
+
+  <!-- CDX-Aira Assistant Floating -->
+<div id="cdx-aira">
+  <img src="cdx-aira.png" alt="CDX Aira" />
+  <div class="aira-bubble">Halo! Aku Aira. Butuh bantuan?</div>
+</div>
+
+  <script>
+  setTimeout(() => {
+    document.querySelector('.aira-bubble').innerText = "Hai~ Kamu udah punya website belum?";
+  }, 4000);
+  </script>
 
 </body>
 </html>
