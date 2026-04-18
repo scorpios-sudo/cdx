@@ -38,6 +38,7 @@
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.05) 0%, transparent 20%);
+            padding-bottom: 70px; /* space for bottom nav */
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -631,15 +632,23 @@
         .testimonials {
             padding: 120px 0;
             background-color: var(--secondary-light);
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
         }
 
         .testimonial-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px 10px;
+            scroll-behavior: smooth;
         }
 
         .testimonial-item {
+            flex: 0 0 85%;
+            scroll-snap-align: center;
             background: var(--secondary);
             border-radius: 10px;
             padding: 30px;
@@ -1084,6 +1093,72 @@
             font-size: 14px;
         }
 
+        /* BOTTOM NAVIGATION BAR (MOBILE) */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+        }
+
+        .bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 12px;
+            transition: var(--transition);
+        }
+
+        .bottom-nav a i {
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+
+        .bottom-nav a.active, .bottom-nav a:hover {
+            color: var(--primary);
+        }
+
+        /* SCROLL TO TOP BUTTON */
+        .scroll-top {
+            position: fixed;
+            bottom: 80px;
+            right: 16px;
+            background: var(--primary);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top i {
+            font-size: 20px;
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .about-content {
@@ -1167,6 +1242,16 @@
             
             .promo-section input, .promo-section button {
                 width: 100%;
+            }
+            
+            .bottom-nav {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .bottom-nav {
+                display: none;
             }
         }
     </style>
@@ -1535,13 +1620,13 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Testimonials (Horizontal Scroll) -->
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-title">
                 <h2>Testimoni Trader Elite</h2>
             </div>
-            <div class="testimonial-slider">
+            <div class="testimonial-slider" id="testimonialSlider">
                 <div class="testimonial-item">
                     <div class="client-img">
                         <div style="width:100%;height:100%;background:linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);display:flex;align-items:center;justify-content:center;color:var(--primary);">
@@ -1551,6 +1636,26 @@
                     <p class="testimonial-text">"Sejak menggunakan sistem TraderX, profit konsisten saya meningkat drastis. AI mereka mampu mengidentifikasi pola pasar yang tidak terlihat oleh analisis manual."</p>
                     <h4 class="client-name">MAULIA PUTRA</h4>
                     <p class="client-title">Institutional Trader</p>
+                </div>
+                <div class="testimonial-item">
+                    <div class="client-img">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);display:flex;align-items:center;justify-content:center;color:var(--primary);">
+                            <i class="fas fa-user-tie" style="font-size:30px;"></i>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Sinyal trading sangat akurat, edukasi mendalam. TraderX benar-benar mengubah cara saya bertrading."</p>
+                    <h4 class="client-name">BUDI SANTOSO</h4>
+                    <p class="client-title">Full-time Trader</p>
+                </div>
+                <div class="testimonial-item">
+                    <div class="client-img">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);display:flex;align-items:center;justify-content:center;color:var(--primary);">
+                            <i class="fas fa-user-tie" style="font-size:30px;"></i>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Komunitas dan mentorship sangat membantu. Saya sekarang lebih percaya diri dalam mengambil keputusan trading."</p>
+                    <h4 class="client-name">DEWI ANJANI</h4>
+                    <p class="client-title">Retail Trader</p>
                 </div>
             </div>
         </div>
@@ -1660,6 +1765,19 @@
         </div>
     </footer>
 
+    <!-- BOTTOM NAVIGATION BAR (MOBILE) -->
+    <div class="bottom-nav">
+        <a href="#home" class="nav-home active"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="#tools" class="nav-tools"><i class="fas fa-tools"></i><span>Tools</span></a>
+        <a href="#pricing" class="nav-pricing"><i class="fas fa-tag"></i><span>Harga</span></a>
+        <a href="#contact" class="nav-contact"><i class="fas fa-headset"></i><span>Kontak</span></a>
+    </div>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <div class="scroll-top" id="scrollTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <script>
         // Mobile Menu Toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
@@ -1670,35 +1788,27 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 if(targetId === '#') return;
-                
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 70,
                         behavior: 'smooth'
                     });
-                    
-                    // Close mobile menu after clicking a link
-                    document.querySelector('.nav-links').classList.remove('active');
+                    document.querySelector('.nav-links')?.classList.remove('active');
                 }
             });
         });
 
         // Simple counter animation for stats
         const statValues = document.querySelectorAll('.stat-value');
-        const observerOptions = {
-            threshold: 0.5
-        };
-
+        const observerOptions = { threshold: 0.5 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const statValue = entry.target;
                     let targetValue;
-                    
                     if (statValue.textContent.includes('%')) {
                         targetValue = parseFloat(statValue.textContent);
                     } else if (statValue.textContent.includes('s')) {
@@ -1706,12 +1816,10 @@
                     } else {
                         targetValue = parseInt(statValue.textContent.replace('+', ''));
                     }
-                    
                     let currentValue = 0;
                     const increment = targetValue / 50;
                     const isPercentage = statValue.textContent.includes('%');
                     const isSeconds = statValue.textContent.includes('s');
-                    
                     const timer = setInterval(() => {
                         currentValue += increment;
                         if (currentValue >= targetValue) {
@@ -1733,37 +1841,65 @@
                             }
                         }
                     }, 30);
-                    
                     observer.unobserve(statValue);
                 }
             });
         }, observerOptions);
-
-        statValues.forEach(statValue => {
-            observer.observe(statValue);
-        });
+        statValues.forEach(statValue => observer.observe(statValue));
 
         // Add glow effect to elements on scroll
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
             const rate = scrolled * -0.5;
-            
             const hero = document.querySelector('.hero');
             if (hero) hero.style.backgroundPosition = `0px ${rate}px`;
         });
 
-        // Promo code handler (simple demo)
+        // Promo code handler
         document.getElementById('applyPromo')?.addEventListener('click', function() {
             const promoInput = document.getElementById('promoCode');
             const promoValue = promoInput.value.trim();
             if (promoValue.toLowerCase() === 'traderx10') {
                 alert('Kode promo valid! Anda mendapatkan diskon tambahan 10%');
-                // In real implementation, you would adjust price or apply discount
             } else if (promoValue !== '') {
                 alert('Kode promo tidak valid');
             } else {
                 alert('Masukkan kode promo terlebih dahulu');
             }
+        });
+
+        // Bottom navigation active state & scroll to section
+        const sections = document.querySelectorAll('section[id]');
+        const bottomNavLinks = document.querySelectorAll('.bottom-nav a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                if (scrollY >= sectionTop && scrollY < sectionBottom) {
+                    current = section.getAttribute('id');
+                }
+            });
+            bottomNavLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href').substring(1);
+                if (href === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
