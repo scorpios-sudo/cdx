@@ -1,101 +1,1906 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CDX - Pro Package</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Trader X Academy | Platform Trading Elite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --primary-dark: #333333;
+            --primary-light: #666666;
+            --secondary: #ffffff;
+            --secondary-light: #f5f5f5;
+            --accent: #000000;
+            --text: #000000;
+            --text-secondary: #666666;
+            --danger: #000000;
+            --success: #000000;
+            --shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
 
-    header {
-      padding: 40px 20px;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(6px);
-      border-bottom: 2px solid #00ffcc;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-    header h1 {
-      font-size: 3em;
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffcc;
-    }
+        body {
+            font-family: 'Exo 2', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--secondary);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.05) 0%, transparent 20%);
+            padding-bottom: 70px; /* space for bottom nav */
+        }
 
-    header p {
-      font-size: 1.2em;
-      color: #ccc;
-    }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 50px 20px;
-    }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .example-site {
-      background: #1b1b1b;
-      border: 1px solid #00ffcc;
-      border-radius: 12px;
-      width: 300px;
-      padding: 20px;
-      transition: all 0.4s ease-in-out;
-      box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
-    }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .example-site:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 0 25px rgba(0, 255, 204, 0.6);
-    }
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
 
-    .example-site img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
+        .btn:hover:before {
+            left: 100%;
+        }
 
-    .example-site h2 {
-      color: #00ffff;
-      font-size: 1.5em;
-    }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
 
-    .example-site p {
-      font-size: 14px;
-      color: #ccc;
-    }
-  </style>
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: var(--text);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo i {
+            color: var(--primary);
+            margin-right: 10px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #f0f0f0 100%);
+            color: var(--text);
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 0, 0, 0.1) 0%, transparent 50%);
+            animation: pulse 10s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .trading-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 80px;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .stat-item:not(:last-child):after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-value {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background-color: var(--secondary-light);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .about-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0,0,0,0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 0;
+            background-color: var(--secondary);
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--secondary-light);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .service-card:hover:before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 32px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Trading Tools */
+        .tools {
+            padding: 120px 0;
+            background-color: var(--secondary-light);
+        }
+
+        .tools-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .tool-item {
+            flex: 1;
+            min-width: 250px;
+            background: var(--secondary);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .tool-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Trading Platform Preview */
+        .platform-preview {
+            padding: 100px 0;
+            background-color: var(--secondary);
+            text-align: center;
+        }
+
+        .platform-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--secondary-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .platform-header {
+            background: var(--secondary);
+            padding: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .platform-window-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .control {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .control.close {
+            background: #ff5f57;
+        }
+
+        .control.minimize {
+            background: #ffbd2e;
+        }
+
+        .control.maximize {
+            background: #28ca42;
+        }
+
+        .platform-content {
+            padding: 0;
+            height: 400px;
+            background: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, #f0f0f0 21px, transparent 1%) center,
+                linear-gradient(#f0f0f0 21px, transparent 1%) center,
+                #e0e0e0;
+            background-size: 22px 22px;
+            position: relative;
+        }
+
+        .chart-line {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 70%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
+            clip-path: polygon(0% 100%, 5% 80%, 10% 85%, 15% 70%, 20% 75%, 25% 60%, 30% 65%, 35% 50%, 40% 55%, 45% 40%, 50% 45%, 55% 30%, 60% 35%, 65% 20%, 70% 25%, 75% 10%, 80% 15%, 85% 5%, 90% 10%, 95% 0%, 100% 5%);
+        }
+
+        .price-indicator {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 15px;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-up {
+            color: var(--success);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 120px 0;
+            background-color: var(--secondary-light);
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px 10px;
+            scroll-behavior: smooth;
+        }
+
+        .testimonial-item {
+            flex: 0 0 85%;
+            scroll-snap-align: center;
+            background: var(--secondary);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .client-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .testimonial-text:before, .testimonial-text:after {
+            content: '"';
+            font-size: 40px;
+            color: var(--primary);
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .testimonial-text:before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text:after {
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .client-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .client-title {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 120px 0;
+            background-color: var(--secondary);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 20px;
+            margin-right: 20px;
+            flex-shrink: 0;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-details h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--secondary-light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            font-size: 16px;
+            transition: var(--transition);
+            color: var(--text);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Analysis Section */
+        .analysis {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .analysis-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .analysis-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .analysis-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .analysis-img i {
+            font-size: 80px;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .analysis-img .chart-preview {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+        }
+
+        .analysis-content {
+            padding: 25px;
+        }
+
+        .analysis-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .analysis-content .date {
+            color: var(--text-secondary);
+            font-size: 12px;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .analysis-content p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .analysis-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background-color: var(--secondary-light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: var(--secondary);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .pricing-header .logo-small {
+            font-size: 24px;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .pricing-header .logo-small i {
+            color: var(--primary);
+            margin-right: 8px;
+        }
+
+        .pricing-header h3 {
+            font-size: 20px;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .price-old {
+            font-size: 24px;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 15px;
+        }
+
+        .price-new {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .price-period {
+            font-size: 16px;
+            font-weight: normal;
+            color: var(--text-secondary);
+        }
+
+        .pricing-features {
+            padding: 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 30px;
+            flex: 1;
+        }
+
+        .feature-list li {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li i {
+            color: var(--primary);
+            font-size: 18px;
+            margin-top: 3px;
+        }
+
+        .promo-section {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-radius: 12px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .promo-section input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .btn-small {
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #ffffff;
+            color: var(--text);
+            padding: 70px 0 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* BOTTOM NAVIGATION BAR (MOBILE) */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+        }
+
+        .bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 12px;
+            transition: var(--transition);
+        }
+
+        .bottom-nav a i {
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+
+        .bottom-nav a.active, .bottom-nav a:hover {
+            color: var(--primary);
+        }
+
+        /* SCROLL TO TOP BUTTON */
+        .scroll-top {
+            position: fixed;
+            bottom: 80px;
+            right: 16px;
+            background: var(--primary);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top i {
+            font-size: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid rgba(0, 0, 0, 0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                margin-bottom: 10px;
+            }
+            
+            .trading-stats {
+                margin-top: 50px;
+            }
+            
+            .stat-item {
+                width: 50%;
+                margin-bottom: 30px;
+            }
+            
+            .stat-item:after {
+                display: none;
+            }
+            
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-features {
+                padding: 25px;
+            }
+            
+            .promo-section {
+                flex-direction: column;
+            }
+            
+            .promo-section input, .promo-section button {
+                width: 100%;
+            }
+            
+            .bottom-nav {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .bottom-nav {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo"><i class="fas fa-chart-line"></i>Trade <span>X</span>Academy</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#platform">Platform</a></li>
+                    <li><a href="#analysis">Analisa</a></li>
+                    <li><a href="#pricing">Harga</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-  <header>
-    <h1>CDX Pro Package</h1>
-    <p>Solusi Website Bisnis yang Canggih, Cepat, dan Desain Modern</p>
-  </header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Dominate The Markets With <span>TraderX</span></h1>
+                <p>Platform trading elite dengan analisis AI, eksekusi ultra-cepat, dan tools canggih untuk trader profesional yang menginginkan keunggulan kompetitif.</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/6285746639477?text=Halo+gua+mau+belajar+trading+bareng+Condex.s" class="btn">Bergabung Sekarang</a>
+                    <a href="https://cdx-id.vercel.app/" class="btn btn-secondary">App Trader X</a>
+                </div>
+                <div class="trading-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">+92.7%</div>
+                        <div class="stat-label">Win Rate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">0.03s</div>
+                        <div class="stat-label">Eksekusi</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">15,000+</div>
+                        <div class="stat-label">Trader Elite</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">AI Monitoring</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="container">
-    <div class="example-site">
-      <img src="img/pro1.jpg" alt="Pro Example 1">
-      <h2>Company Profile</h2>
-      <p>Website profil bisnis profesional dengan UI clean dan responsif.</p>
-    </div>
-    <div class="example-site">
-      <img src="img/pro2.jpg" alt="Pro Example 2">
-      <h2>Landing Page Produk</h2>
-      <p>Page interaktif dengan CTA kuat dan fokus konversi penjualan.</p>
-    </div>
-    <div class="example-site">
-      <img src="img/pro3.jpg" alt="Pro Example 3">
-      <h2>Online Store</h2>
-      <p>Tampilan toko modern lengkap dengan fitur keranjang dan checkout.</p>
-    </div>
-  </div>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang Saya</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Professional Algorithmic Trader</h3>
+                    <p>Saya Alex Gunawan, seorang algorithmic trader dengan spesialisasi dalam high-frequency trading dan pengembangan strategi berbasis AI. Dengan pengalaman lebih dari 10 tahun di pasar finansial global, saya telah mengembangkan sistem trading yang menghasilkan konsistensi profit dalam berbagai kondisi pasar.</p>
+                    <p>Pendekatan trading saya menggabungkan analisis teknikal tingkat lanjut, machine learning, dan eksekusi berkecepatan tinggi untuk mengekstrak profit dari ketidakefisienan pasar.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div>
+                                <h4>AI-Powered Analysis</h4>
+                                <p>Strategi berbasis machine learning</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h4>Ultra-Fast Execution</h4>
+                                <p>Eksekusi dalam milidetik</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Risk Management</h4>
+                                <p>Perlindungan modal maksimal</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-network"></i>
+                            </div>
+                            <div>
+                                <h4>Multi-Market</h4>
+                                <p>Forex, Crypto, Indeks, Komoditas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div style="width:100%;height:400px;background:linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:24px;position:relative;">
+                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRhPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmZmZmZmYiLz48cGF0aCBkPSJNMCw1MDBMMTAwLDUwMEwxMDAsNjAwTDIwMCw2MDAgTDIwMCw0MDBMMzAwLDQwMEwzMDAsNzAwTDQwMCw3MDBMNDAwLDMwMEw1MDAsMzAwTDUwMCw4MDBMNjAwLDgwMEw2MDAsMjAwTDcwMCwyMDBMNzAwLDkwMEw4MDAsOTAwTDgwMCwxMDBMOTAwLDEwMEw5MDAsMTAwMEwxMDAwLDEwMDBMMTAwMCwwIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==');opacity:0.3;"></div>
+                        <i class="fas fa-user-ninja" style="font-size:80px;text-shadow:0 0 20px rgba(0,0,0,0.3);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Layanan Elite</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Trading Signals</h3>
+                    <p>Sinyal trading berbasis artificial intelligence dengan akurasi tertinggi di industri. Sistem kami menganalisis ratusan indikator secara real-time.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>High-Frequency Trading</h3>
+                    <p>Eksekusi ultra-cepat dengan latency terendah di pasar. Manfaatkan kecepatan untuk mendapatkan harga terbaik.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-network"></i>
+                    </div>
+                    <h3>Algorithmic Strategies</h3>
+                    <p>Strategi trading algoritmik yang dioptimalkan untuk berbagai kondisi pasar dan timeframes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Elite Mentorship</h3>
+                    <p>Program mentorship eksklusif untuk trader serius yang ingin menguasai seni algorithmic trading.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>VPS Hosting</h3>
+                    <p>Hosting VPS berperforma tinggi dengan koneksi langsung ke broker untuk eksekusi maksimal.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Portfolio Management</h3>
+                    <p>Manajemen portfolio profesional dengan diversifikasi optimal dan pengelolaan risiko ketat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trading Tools -->
+    <section class="tools" id="tools">
+        <div class="container">
+            <div class="section-title">
+                <h2>Advanced Trading Tools</h2>
+            </div>
+            <div class="tools-container">
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-chess-board"></i>
+                    </div>
+                    <h3>Market Matrix</h3>
+                    <p>Analisis korelasi pasar multidimensi untuk identifikasi peluang arbitrase dan hedging.</p>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <h3>Volume Profile</h3>
+                    <p>Analisis volume trading untuk identifikasi level support dan resistance yang kuat.</p>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Order Flow</h3>
+                    <p>Monitoring aliran order institusional untuk mengidentifikasi pergerakan besar.</p>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Neural Scanner</h3>
+                    <p>Scanner AI yang menganalisis ratusan pasar secara simultan untuk peluang terbaik.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Preview -->
+    <section class="platform-preview" id="platform">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trader X Platform</h2>
+            </div>
+            <div class="platform-container">
+                <div class="platform-header">
+                    <div class="platform-window-controls">
+                        <div class="control close"></div>
+                        <div class="control minimize"></div>
+                        <div class="control maximize"></div>
+                    </div>
+                    <div style="color: var(--text-secondary); font-size: 14px;">TraderX Terminal v3.7 - EUR/USD - 1 Minute</div>
+                </div>
+                <div class="platform-content">
+                    <div class="chart-container">
+                        <div class="chart-line"></div>
+                        <div class="price-indicator">
+                            <div>XAU/USD</div>
+                            <div class="price-up">1.09472 <i class="fas fa-arrow-up"></i></div>
+                            <div style="font-size: 12px; color: var(--text-secondary);">+0.24%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section class="analysis" id="analysis">
+        <div class="container">
+            <div class="section-title">
+                <h2>Analisa Market Terkini</h2>
+                <p style="margin-top: 15px;">Analisa mendalam dari tim trader profesional kami</p>
+            </div>
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <div class="analysis-img">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="chart-preview"></div>
+                    </div>
+                    <div class="analysis-content">
+                        <span class="date"><i class="far fa-calendar-alt"></i> 15 Januari 2025</span>
+                        <h3>BTC/USD - Analisis Breakout Structure</h3>
+                        <p>Bitcoin menunjukkan pembentukan higher low yang solid setelah konsolidasi 2 minggu. Volume accumulation terdeteksi di area $42,000 - $43,500. Target selanjutnya berada di level psikologis $48,000 dengan support kuat di $41,200.</p>
+                        <div class="analysis-tags">
+                            <span class="tag">BTC</span>
+                            <span class="tag">Breakout</span>
+                            <span class="tag">Bullish</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="analysis-card">
+                    <div class="analysis-img">
+                        <i class="fas fa-chart-bar"></i>
+                        <div class="chart-preview"></div>
+                    </div>
+                    <div class="analysis-content">
+                        <span class="date"><i class="far fa-calendar-alt"></i> 14 Januari 2025</span>
+                        <h3>ETH/USD - Demand Zone Reaction</h3>
+                        <p>Ethereum memantul sempurna dari demand zone di area $2,200. Order flow menunjukkan akumulasi dari investor institusi. Potensi rally menuju $2,600 - $2,800 dalam jangka pendek.</p>
+                        <div class="analysis-tags">
+                            <span class="tag">ETH</span>
+                            <span class="tag">Demand Zone</span>
+                            <span class="tag">Accumulation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="analysis-card">
+                    <div class="analysis-img">
+                        <i class="fas fa-chart-pie"></i>
+                        <div class="chart-preview"></div>
+                    </div>
+                    <div class="analysis-content">
+                        <span class="date"><i class="far fa-calendar-alt"></i> 13 Januari 2025</span>
+                        <h3>GOLD (XAU/USD) - Macro Analysis</h3>
+                        <p>Data inflasi AS yang lebih rendah dari ekspektasi memberikan tekanan pada DXY. Gold berpotensi menguji resistance $2,050. Break di atas level tersebut akan membuka jalan menuju all time high.</p>
+                        <div class="analysis-tags">
+                            <span class="tag">XAUUSD</span>
+                            <span class="tag">Macro</span>
+                            <span class="tag">DXY Correlation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Daftar & Join Sekarang</h2>
+            </div>
+            <div class="pricing-grid">
+                <!-- Paket Bulanan -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="logo-small">
+                            <i class="fas fa-chart-line"></i> TRADER X ACADEMY
+                        </div>
+                        <h3>AKSES PENUH BULANAN</h3>
+                        <div>
+                            <span class="price-new">Rp 1.900.000</span>
+                            <span class="price-period"> /bulan</span>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 14px; color: #666;">Cocok untuk fleksibilitas</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Analisa level institusi yang biasanya hanya bisa di akses oleh fund manager, membuat keputusan yang kamu ambil lebih tajam di market.</li>
+                            <li><i class="fas fa-check-circle"></i> Ratusan jam modul dari fundamental hingga strategi quantitative yang relevan dengan kondisi market hari ini.</li>
+                            <li><i class="fas fa-check-circle"></i> Sesi mentoring langsung dengan praktisi setiap bulannya secara LIVE.</li>
+                            <li><i class="fas fa-check-circle"></i> Rekaman semua sesi webinar, mentoring, yang bisa ditonton ulang selamanya.</li>
+                            <li><i class="fas fa-check-circle"></i> Aktivitas offline tahunan untuk sesi networking dengan sesama pelajar.</li>
+                        </ul>
+                        <a href="https://wa.me/6285746639477?text=Halo%20saya%20mau%20join%20paket%20bulanan%20Trader%20X%20Academy" class="btn" style="width:100%; text-align:center;">Dapatkan Akses Bulanan</a>
+                    </div>
+                </div>
+
+                <!-- Paket Tahunan -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="logo-small">
+                            <i class="fas fa-chart-line"></i> TRADER X ACADEMY
+                        </div>
+                        <h3>12 BULAN AKSES PENUH</h3>
+                        <div>
+                            <span class="price-old">Rp 18.566.500</span>
+                            <span class="price-new">Rp 10.320.000</span>
+                            <span class="price-period"> /12 bulan</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Analisa level institusi yang biasanya hanya bisa di akses oleh fund manager, membuat keputusan yang kamu ambil lebih tajam di market.</li>
+                            <li><i class="fas fa-check-circle"></i> Ratusan jam modul dari fundamental hingga strategi quantitative yang relevan dengan kondisi market hari ini.</li>
+                            <li><i class="fas fa-check-circle"></i> Sesi mentoring langsung dengan praktisi setiap bulannya secara LIVE.</li>
+                            <li><i class="fas fa-check-circle"></i> Rekaman semua sesi webinar, mentoring, yang bisa ditonton ulang selamanya.</li>
+                            <li><i class="fas fa-check-circle"></i> Aktivitas offline tahunan untuk sesi networking dengan sesama pelajar.</li>
+                        </ul>
+                        <a href="https://wa.me/6285746639477?text=Halo%20saya%20mau%20join%20paket%20tahunan%20Trader%20X%20Academy" class="btn" style="width:100%; text-align:center; margin-bottom: 20px;">Dapatkan Akses Tahunan</a>
+                        
+                        <div class="promo-section">
+                            <input type="text" placeholder="Punya Kode Promo? Masukkan di sini" id="promoCode">
+                            <button class="btn btn-secondary btn-small" id="applyPromo">Terapkan</button>
+                        </div>
+                        <p style="font-size: 12px; color: #888; margin-top: 15px; text-align: center;">*Promo hanya dapat digunakan satu kali per akun</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials (Horizontal Scroll) -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimoni Trader Elite</h2>
+            </div>
+            <div class="testimonial-slider" id="testimonialSlider">
+                <div class="testimonial-item">
+                    <div class="client-img">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);display:flex;align-items:center;justify-content:center;color:var(--primary);">
+                            <i class="fas fa-user-tie" style="font-size:30px;"></i>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Sejak menggunakan sistem TraderX, profit konsisten saya meningkat drastis. AI mereka mampu mengidentifikasi pola pasar yang tidak terlihat oleh analisis manual."</p>
+                    <h4 class="client-name">MAULIA PUTRA</h4>
+                    <p class="client-title">Institutional Trader</p>
+                </div>
+                <div class="testimonial-item">
+                    <div class="client-img">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);display:flex;align-items:center;justify-content:center;color:var(--primary);">
+                            <i class="fas fa-user-tie" style="font-size:30px;"></i>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Sinyal trading sangat akurat, edukasi mendalam. TraderX benar-benar mengubah cara saya bertrading."</p>
+                    <h4 class="client-name">BUDI SANTOSO</h4>
+                    <p class="client-title">Full-time Trader</p>
+                </div>
+                <div class="testimonial-item">
+                    <div class="client-img">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);display:flex;align-items:center;justify-content:center;color:var(--primary);">
+                            <i class="fas fa-user-tie" style="font-size:30px;"></i>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Komunitas dan mentorship sangat membantu. Saya sekarang lebih percaya diri dalam mengambil keputusan trading."</p>
+                    <h4 class="client-name">DEWI ANJANI</h4>
+                    <p class="client-title">Retail Trader</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Saya</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Lokasi</h3>
+                            <p>Jakarta Financial District</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telepon</h3>
+                            <p>+62 858-5201-5202</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>condexs42@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Jam Trading</h3>
+                            <p>24/5 (Market Hours)</p>
+                            <p>Support: 24/7</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Trader X Elite</h3>
+                    <p>Platform trading algoritmik terdepan dengan teknologi AI untuk trader profesional yang menginginkan keunggulan kompetitif di pasar finansial.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Link Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#services">Layanan</a></li>
+                        <li><a href="#tools">Tools</a></li>
+                        <li><a href="#platform">Platform</a></li>
+                        <li><a href="#analysis">Analisa</a></li>
+                        <li><a href="#pricing">Harga</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">AI Trading Signals</a></li>
+                        <li><a href="#">HFT Execution</a></li>
+                        <li><a href="#">Algorithmic Strategies</a></li>
+                        <li><a href="#">Elite Mentorship</a></li>
+                        <li><a href="#">VPS Hosting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Dapatkan analisis pasar eksklusif dan update trading langsung ke inbox Anda.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email Anda" required>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Berlangganan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 TraderX Elite. All Rights Reserved. | Designed for Professional Traders</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTTOM NAVIGATION BAR (MOBILE) -->
+    <div class="bottom-nav">
+        <a href="#home" class="nav-home active"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="#tools" class="nav-tools"><i class="fas fa-tools"></i><span>Tools</span></a>
+        <a href="#pricing" class="nav-pricing"><i class="fas fa-tag"></i><span>Harga</span></a>
+        <a href="#contact" class="nav-contact"><i class="fas fa-headset"></i><span>Kontak</span></a>
+    </div>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <div class="scroll-top" id="scrollTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    document.querySelector('.nav-links')?.classList.remove('active');
+                }
+            });
+        });
+
+        // Simple counter animation for stats
+        const statValues = document.querySelectorAll('.stat-value');
+        const observerOptions = { threshold: 0.5 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statValue = entry.target;
+                    let targetValue;
+                    if (statValue.textContent.includes('%')) {
+                        targetValue = parseFloat(statValue.textContent);
+                    } else if (statValue.textContent.includes('s')) {
+                        targetValue = parseFloat(statValue.textContent);
+                    } else {
+                        targetValue = parseInt(statValue.textContent.replace('+', ''));
+                    }
+                    let currentValue = 0;
+                    const increment = targetValue / 50;
+                    const isPercentage = statValue.textContent.includes('%');
+                    const isSeconds = statValue.textContent.includes('s');
+                    const timer = setInterval(() => {
+                        currentValue += increment;
+                        if (currentValue >= targetValue) {
+                            if (isPercentage) {
+                                statValue.textContent = '+' + targetValue.toFixed(1) + '%';
+                            } else if (isSeconds) {
+                                statValue.textContent = targetValue.toFixed(3) + 's';
+                            } else {
+                                statValue.textContent = targetValue.toLocaleString() + '+';
+                            }
+                            clearInterval(timer);
+                        } else {
+                            if (isPercentage) {
+                                statValue.textContent = '+' + currentValue.toFixed(1) + '%';
+                            } else if (isSeconds) {
+                                statValue.textContent = currentValue.toFixed(3) + 's';
+                            } else {
+                                statValue.textContent = Math.floor(currentValue).toLocaleString() + '+';
+                            }
+                        }
+                    }, 30);
+                    observer.unobserve(statValue);
+                }
+            });
+        }, observerOptions);
+        statValues.forEach(statValue => observer.observe(statValue));
+
+        // Add glow effect to elements on scroll
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            const hero = document.querySelector('.hero');
+            if (hero) hero.style.backgroundPosition = `0px ${rate}px`;
+        });
+
+        // Promo code handler
+        document.getElementById('applyPromo')?.addEventListener('click', function() {
+            const promoInput = document.getElementById('promoCode');
+            const promoValue = promoInput.value.trim();
+            if (promoValue.toLowerCase() === 'traderx10') {
+                alert('Kode promo valid! Anda mendapatkan diskon tambahan 10%');
+            } else if (promoValue !== '') {
+                alert('Kode promo tidak valid');
+            } else {
+                alert('Masukkan kode promo terlebih dahulu');
+            }
+        });
+
+        // Bottom navigation active state & scroll to section
+        const sections = document.querySelectorAll('section[id]');
+        const bottomNavLinks = document.querySelectorAll('.bottom-nav a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                if (scrollY >= sectionTop && scrollY < sectionBottom) {
+                    current = section.getAttribute('id');
+                }
+            });
+            bottomNavLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href').substring(1);
+                if (href === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
